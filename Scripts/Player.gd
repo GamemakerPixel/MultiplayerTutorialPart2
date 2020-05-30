@@ -10,7 +10,7 @@ func initialize(id):
 		is_master = true
 	else:
 		modulate = Color8(255, 0, 0, 255)
-	print("Player name is " + name)
+	#print("Player name is " + name)
 
 func _physics_process(delta):
 	if is_master:
