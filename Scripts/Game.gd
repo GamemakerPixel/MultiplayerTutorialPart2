@@ -12,7 +12,7 @@ func create_players():
 	create_player(Net.net_id)
 
 func create_player(id):
-	print("Player with ID " + str(id) + " initialized")
+	#print("Player with ID " + str(id) + " initialized")
 	var p = preload("res://Scenes/Player.tscn").instance()
 	add_child(p)
 	p.initialize(id)
