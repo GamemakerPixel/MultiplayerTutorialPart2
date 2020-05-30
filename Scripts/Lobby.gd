@@ -9,5 +9,5 @@ func connected():
 		rpc("begin_game")
 		begin_game()
 
-master func begin_game():
+remote func begin_game():
 	get_tree().change_scene("res://Scenes/Game.tscn")
