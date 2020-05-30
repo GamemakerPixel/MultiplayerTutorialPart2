@@ -14,7 +14,7 @@ func initialize_server():
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(RPC_PORT, MAX_PLAYERS)
 	get_tree().network_peer = peer
-	print("initialized as host")
+	#print("initialized as host")
 
 func initialize_client(server_ip):
 	if OFFLINE_TESTING:
@@ -22,9 +22,9 @@ func initialize_client(server_ip):
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_client(server_ip, RPC_PORT)
 	get_tree().network_peer = peer
-	print("initialized as client")
+	#print("initialized as client")
 
 func set_ids():
 	net_id = get_tree().get_network_unique_id()
 	peer_ids = get_tree().get_network_connected_peers()
-	print("ID is " + str(net_id) + " and peer IDs are " + str(peer_ids))
+	#print("ID is " + str(net_id) + " and peer IDs are " + str(peer_ids))
