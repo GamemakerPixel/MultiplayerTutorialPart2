@@ -4,7 +4,7 @@ func _ready():
 	get_tree().connect("connected_to_server", self, "connected")
 
 func connected():
-	print("CONNECTED")
+	#print("CONNECTED")
 	if not Net.is_host:
 		rpc("begin_game")
 		begin_game()
