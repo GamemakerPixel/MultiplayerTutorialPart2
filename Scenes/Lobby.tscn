@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/HostButton.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/JoinButton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Connecting.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Lobby.gd" type="Script" id=4]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host" type="Button" parent="."]
+margin_left = 399.0
+margin_top = 96.0
+margin_right = 634.0
+margin_bottom = 158.0
+text = "Host"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="Label" parent="Host"]
+margin_left = 1.0
+margin_top = 43.0
+margin_right = 237.0
+margin_bottom = 63.0
+text = "IP:"
+align = 1
+valign = 1
+
+[node name="Join" type="Button" parent="."]
+margin_left = 403.0
+margin_top = 288.0
+margin_right = 638.0
+margin_bottom = 350.0
+text = "Join"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="LineEdit" parent="Join"]
+margin_top = 81.0
+margin_right = 237.0
+margin_bottom = 105.0
+align = 1
+placeholder_text = "Enter the host's IP address"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvalidIP" type="Label" parent="Join"]
+visible = false
+margin_left = 1.0
+margin_top = 119.0
+margin_right = 236.0
+margin_bottom = 140.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Invalid IP address"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Connecting" type="ColorRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Connecting"]
+margin_right = 1024.0
+margin_bottom = 600.0
+text = "(Connection Status Text)"
+align = 1
+valign = 1
+[connection signal="pressed" from="Host" to="Host" method="host"]
+[connection signal="set_connect_type" from="Host" to="Connecting" method="set_connect_type"]
+[connection signal="pressed" from="Join" to="Join" method="_pressed"]
+[connection signal="set_connect_type" from="Join" to="Connecting" method="set_connect_type"]
